@@ -13,7 +13,7 @@ public class JavaTest {
 	public JavaTest(String health)
 	{
 		
-		System.out.println("You have " + health + " health.");
+		System.out.println("You have " + health + " health. ayylmao");
 	}
 
 }
