@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Start
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Start\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Start()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Start.\r\n\ \r\n
+comment2.params=icon\ x\ y
+comment2.target=void\ addMiscObject(java.lang.String,\ int,\ int)
+comment3.params=
+comment3.target=void\ prepare()
+comment3.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\ That\ is\:\ create\ the\ initial\r\n\ objects\ and\ add\ them\ to\ the\ world.\r\n
+numComments=4

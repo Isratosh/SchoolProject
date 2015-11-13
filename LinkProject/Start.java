@@ -22,10 +22,10 @@ public class Start extends World
     }
 
 
-    public void act()
+    public void addMiscObject(String icon, int x, int y)
     {
-        Actor object = new object("alone");
-        addObject(object, 50, 50);
+        object miscObject = new object(icon);
+        addObject(miscObject, x, y);
     }
 
     /**
@@ -34,10 +34,10 @@ public class Start extends World
      */
     private void prepare()
     {
-        oldMan oldman = new oldMan();
-        addObject(oldman, 283, 175);
+
         link link = new link(50);
-        addObject(link, 283, 306);
-        link.setLocation(284, 299);
+        addObject(link,296,314);
+        oldMan oldman = new oldMan();
+        addObject(oldman,301,174);
     }
 }
