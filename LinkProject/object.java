@@ -8,13 +8,15 @@ import greenfoot.*;
  */
 public class object extends Actor
 {
-    public object(String icon)
+    public String icon;
+    public object(String inputIcon)
     {
         String fileName = "images/";
-        fileName += icon;
+        fileName += inputIcon;
         fileName += ".png";
         fileName = fileName.toLowerCase();
         setImage(fileName);
+        icon = inputIcon;
     }
     public void removeSelf()
     {
@@ -26,6 +28,28 @@ public class object extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        if(Greenfoot.isKeyDown("e") && !getObjectsInRange(50, link.class).isEmpty())
+        {
+            interact();
+        }
+    }
+    public void interact()
+    {
+        switch(icon)
+        {
+            case "bananas": 
+                link.theLink.hasSword = true;
+                this.removeSelf();
+                Greenfoot.delay(10);
+                World level1 = new Area1();
+                Greenfoot.setWorld(level1);
+                break;
+            case "muffin":
+                break;
+            default:
+                System.out.println("Something went wrong. The player attempted to interact with a misc. object not included in the list. The icon was " + icon + ".");
+                break;
+                          
+        }
+    }
 }

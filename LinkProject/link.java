@@ -1,6 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.Timer;
-import java.util.TimerTask;
 /**
  * Write a description of class Link here.
  * 
@@ -18,7 +16,8 @@ public class link extends Actor
     public int bombs;
     public String facingDirection;
     public String movementState;
-    private Timer timer = new Timer();
+    private boolean checking;
+    private int atime = 0;
     public link(int health)
     {
         this.health = health;
@@ -34,45 +33,93 @@ public class link extends Actor
         fileName += "/" + movementState;
         fileName += "/link.png";
         fileName = fileName.toLowerCase();
+        if(theLink.movementState == "walking") //DEBUG CODE
+        {
+            fileName = "link.png";
+        }
+        if(theLink.movementState == "notwalking")
+        {
+            fileName = "bananas.png";
+        }
         //fileName = "link.png";
         theLink.setImage(fileName);
     }
     public void movementCheck()
     {
+        theLink.checking = false;
         if(Greenfoot.isKeyDown("w"))
         {
             theLink.setLocation(theLink.getX(), theLink.getY() - 5);
-            theLink.movementState = "walking";
+            theLink.facingDirection = "north";
+            theLink.checking = true;
         }
         if(Greenfoot.isKeyDown("s"))
         {
             theLink.setLocation(theLink.getX(), theLink.getY() + 5);
+            theLink.facingDirection = "south";
+            theLink.checking = true;
         }
         if(Greenfoot.isKeyDown("d"))
         {
             theLink.setLocation(theLink.getX() + 5, theLink.getY());
+            theLink.facingDirection = "west";
+            theLink.checking = true;
         }
         if(Greenfoot.isKeyDown("a"))
         {
             theLink.setLocation(theLink.getX() - 5, theLink.getY());
+            theLink.facingDirection = "east";
+            theLink.checking = true;
+        }
+        if(theLink.checking == false)
+        {
+            theLink.movementState = "notwalking";
         }
     }
     public void stateCheck()
     {
-        if(theLink.movementState == "walking")
+        /*if(theLink.movementState == "walking" && !checking)
         {
-            theLink.timer.cancel(); //this will cancel the current task. if there is no active task, nothing happens
-            theLink.timer = new Timer();
-
-            TimerTask action = new TimerTask() 
+            theLink.checking = true;
+            startTime = System.currentTimeMillis();
+            while(checkingTime < startTime + 1000)
             {
-                public void run() {
-                    theLink.movementState = "notwalking"; //as you said in the comments: abc is a static method
-                    System.out.println("Task complete.");
-                }
-
-            };
-            theLink.timer.schedule(action, 600); //this starts the task
+                checkingTime = System.currentTimeMillis();
+            }
+            theLink.movementState = "notwalking";
+            startTime = System.currentTimeMillis();
+            checkingTime = startTime;
+            while(checkingTime < startTime + 1000)
+            {
+                checkingTime = System.currentTimeMillis();
+            }
+            theLink.checking = false;
+            System.out.println("Debug: stateCheck loop complete.");
+        }*/
+        if(theLink.checking)
+        {
+            atime = atime + 1;
+            if (atime == 18)
+            {
+                atime = 0;
+                theLink.movementState = "notwalking";
+            }
+            if (atime == 0)
+            {
+                theLink.movementState = "walking";
+            }
+            if (atime==6)
+            {
+                theLink.movementState = "notwalking";
+            }
+            if (atime==12)
+            {
+                theLink.movementState = "walking";
+            }
+        }
+        else
+        {
+            theLink.movementState = "notwalking";
         }
     }
     /**
