@@ -26,9 +26,10 @@ public class Area1 extends World
      */
     private void prepare()
     {
-        link link = new link(50);
-        addObject(link,52,228);
-        enemy enemy = new enemy();
+        link theLink = oldMan.savedLink;
+        addObject(theLink,52,228);
+        link.theLink = theLink;
+        enemy enemy = new enemy(2, "hamburger");
         addObject(enemy,445,232);
     }
 }

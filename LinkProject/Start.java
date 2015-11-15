@@ -35,7 +35,7 @@ public class Start extends World
     private void prepare()
     {
 
-        link link = new link(50);
+        link link = new link(10, "north");
         addObject(link,296,314);
         oldMan oldman = new oldMan();
         addObject(oldman,301,174);

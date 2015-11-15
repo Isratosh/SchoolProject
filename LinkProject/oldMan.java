@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class oldMan extends Actor
 {
     public boolean completed = false;
+    public static link savedLink;
     /**
      * Act - do whatever the oldMan wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -36,5 +37,9 @@ public class oldMan extends Actor
         Greenfoot.delay(150);
         object sword = new object("bananas");//CHANGE THIS
         getWorld().addObject(sword, this.getX(), this.getY() + 50);
+    }
+    public static void saveLink()
+    {
+        savedLink = link.theLink;
     }
 }
