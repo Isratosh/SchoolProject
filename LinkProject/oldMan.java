@@ -35,7 +35,7 @@ public class oldMan extends Actor
     public void giveSword()
     {
         Greenfoot.delay(150);
-        object sword = new object("bananas");//CHANGE THIS
+        object sword = new object("sword");
         getWorld().addObject(sword, this.getX(), this.getY() + 50);
     }
     public static void saveLink()

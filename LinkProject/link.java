@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class link extends Actor
 {
-    protected static final String FILE_IMAGE_LOCATION = "images/link";
+    protected static final String FILE_IMAGE_LOCATION = "images/link/";
     public static link theLink;
     public int health;
     public boolean hasSword;
@@ -35,20 +35,11 @@ public class link extends Actor
     public void draw()
     {
         String fileName = FILE_IMAGE_LOCATION;
-        facingDirection = "south"; //TEMPORARY
-        fileName += "/" + facingDirection;
-        fileName += "/" + movementState;
-        fileName += "/link.png";
+        fileName += "link";
+        fileName += facingDirection;
+        fileName += movementState;
+        fileName += ".png";
         fileName = fileName.toLowerCase();
-        if(theLink.movementState == "walking"  || theLink.movementState == "attacking") //DEBUG CODE
-        {
-            fileName = "link.png";
-        }
-        if(theLink.movementState == "notwalking")
-        {
-            fileName = "bananas.png";
-        }
-        //fileName = "link.png";
         theLink.setImage(fileName);
     }
     public void setHealth(int newHealth)
@@ -98,13 +89,13 @@ public class link extends Actor
         if(Greenfoot.isKeyDown("d"))
         {
             theLink.setLocation(theLink.getX() + 5, theLink.getY());
-            theLink.facingDirection = "west";
+            theLink.facingDirection = "east";
             theLink.checking = true;
         }
         if(Greenfoot.isKeyDown("a"))
         {
             theLink.setLocation(theLink.getX() - 5, theLink.getY());
-            theLink.facingDirection = "east";
+            theLink.facingDirection = "west";
             theLink.checking = true;
         }
         if(theLink.checking == false)

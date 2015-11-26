@@ -37,7 +37,7 @@ public class object extends Actor
     {
         switch(icon)
         {
-            case "bananas": 
+            case "sword": 
                 link.theLink.hasSword = true;
                 this.removeSelf();
                 Greenfoot.delay(10);
