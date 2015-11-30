@@ -23,6 +23,7 @@ public class link extends Actor
     private boolean attacking;
     public boolean invincible = false;
     public link(int startingHealth, String startingDirection)
+    public String ayylmao = "John";
     {
         this.health = startingHealth;
         this.facingDirection = startingDirection;
