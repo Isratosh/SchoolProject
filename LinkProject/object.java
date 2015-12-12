@@ -41,7 +41,7 @@ public class object extends Actor
                 link.theLink.hasSword = true;
                 this.removeSelf();
                 Greenfoot.delay(10);
-                link.toLevelOne();
+                link.toNextLevel(1);
                 break;
             case "muffin":
                 break;

@@ -8,6 +8,4 @@ comment2.params=
 comment2.target=void\ interact()
 comment3.params=
 comment3.target=void\ giveSword()
-comment4.params=
-comment4.target=void\ saveLink()
-numComments=5
+numComments=4

@@ -6,9 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Area1 extends World
+public class Area1 extends Levels
 {
-
+    
     /**
      * Constructor for objects of class Area1.
      * 
@@ -16,7 +16,7 @@ public class Area1 extends World
     public Area1()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(1, 1); 
         prepare();
     }
 
@@ -26,10 +26,10 @@ public class Area1 extends World
      */
     private void prepare()
     {
-        link theLink = oldMan.savedLink;
         addObject(theLink,52,228);
         link.theLink = theLink;
         enemy enemy = new enemy(2, "hamburger");
         addObject(enemy,445,232);
     }
+    
 }

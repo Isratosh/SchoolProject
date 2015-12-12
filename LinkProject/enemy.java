@@ -23,6 +23,7 @@ public class enemy extends Actor
         if(health < 1)
         {
             die();
+            Levels.decEnemies();
         }
     }
     public void die()

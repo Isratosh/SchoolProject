@@ -22,6 +22,7 @@ public class link extends Actor
     private int ctime = 0;
     private boolean attacking;
     public boolean invincible = false;
+    public static int currentLevel = 0;
     public link(int startingHealth, String startingDirection)
     {
         this.health = startingHealth;
@@ -29,6 +30,7 @@ public class link extends Actor
         theLink = this;
         theLink.movementState = "notwalking";
         theLink.attacking = false;
+        Levels.theLink = this;
         draw();
         Greenfoot.start();
     }
@@ -150,11 +152,24 @@ public class link extends Actor
             theLink.movementState = "notwalking";
         }
     }
-    public static void toLevelOne()
+    public static void toNextLevel(int a)
     {
-        oldMan.saveLink();
-        World level1 = new Area1();
-        Greenfoot.setWorld(level1);
+        World nextLevel = new Start();
+        switch(a)
+        {
+            case 1:
+                currentLevel = 1;
+                nextLevel = new Area1();
+                break;
+            case 2:
+                currentLevel = 2;
+                nextLevel = new Area2();
+                break;
+            default:
+                System.out.println("Something went wrong. Attempted to move to next level of value \""+a+"\".");
+                break;
+        }
+        Greenfoot.setWorld(nextLevel);
     }
     public static void toYouLose()
     {
@@ -206,6 +221,8 @@ public class link extends Actor
             toYouLose();
         }
     }
+    
+    
     /**
      * Act - do whatever the Link wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
