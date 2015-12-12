@@ -16,5 +16,21 @@ public class Area2 extends Levels
     public Area2()
     {
         super(3,2);
+        prepare();
+    }
+
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        addObject(theLink,66,228);
+        enemy enemy = new enemy(2, "hamburger");
+        addObject(enemy,265,86);
+        enemy enemy2 = new enemy(2, "hamburger");
+        addObject(enemy2,422,219);
+        enemy enemy3 = new enemy(2, "hamburger");
+        addObject(enemy3,295,344);
     }
 }

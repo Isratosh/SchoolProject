@@ -12,6 +12,7 @@ public class enemy extends Actor
     public String icon;
     private boolean attacked;
     private int atime = 0;
+    private int btime = 0;
     public enemy(int startingHealth, String startingIcon)
     {
         this.health = startingHealth;
@@ -51,6 +52,35 @@ public class enemy extends Actor
             atime = 0;
         }
     }
+    public void movement()
+    {
+        int a = Greenfoot.getRandomNumber(4);
+        if(btime >=30)
+        {
+            switch(a)
+            {
+                case 0:
+                    setLocation(getX()+30,getY());
+                    break;
+                case 1:
+                    setLocation(getX()-30,getY());
+                    break;
+                case 2:
+                    setLocation(getX(),getY()+30);
+                    break;
+                case 3:
+                    setLocation(getX(),getY()-30);
+                    break;
+                default:
+                    System.out.println("Enemy attempted to move in a wrong direction. Attempted direction was: "+a);
+            }
+            btime = 0;
+        }
+        else
+        {
+            ++btime;
+        }
+    }
     /**
      * Act - do whatever the enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -63,5 +93,6 @@ public class enemy extends Actor
         {
             damageCheck();
         }
+        movement();
     }
 }
