@@ -1,6 +1,1 @@
-# This is totally not a Legend of Zelda ripoff for a school project.
-I learned more about Java as I was coding this, so half of it is really shitty and the other half is only sort of shitty. Especially with the "theLink" var I had going. I'll clean that up.
-
-To use this, download greenfoot and just throw this in a project file. Run it. Done.
-
-As of right now, I don`t have the proper images setup. The images are all placeholder bananas and muffins and such. It'll be fixed soon.
+This code does not compile on Greenfoot 2.4.2 that the school uses. To run this program, download the executable LinkProject.jar and play that. Once the program is running, press the RUN button and hit the space bar to begin. Press E to talk to the Old Man, and then E again to pick up the sword. F to attack the enemies. If the program stops inexplicably in between levels, simply click the RUN button and continue playing.
