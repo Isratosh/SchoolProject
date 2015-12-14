@@ -23,10 +23,24 @@ public class link extends Actor
     private boolean attacking;
     public boolean invincible = false;
     public static int currentLevel = 0;
+    public static object heart;
     public link(int startingHealth, String startingDirection)
     {
         this.health = startingHealth;
         this.facingDirection = startingDirection;
+        theLink = this;
+        theLink.movementState = "notwalking";
+        theLink.attacking = false;
+        Levels.theLink = this;
+        draw();
+        createHealth();
+        Greenfoot.start();
+        
+    }
+    public link()
+    {
+        this.health = 10;
+        this.facingDirection = "north";
         theLink = this;
         theLink.movementState = "notwalking";
         theLink.attacking = false;
@@ -48,31 +62,25 @@ public class link extends Actor
     {
         health = newHealth;
     }
-    public int getHealth()
+    public static int getHealth()
     {
-        return health;
+        return theLink.health;
     }
-    /*public void checkFacing()
+    public void createHealth()
     {
-        switch(theLink.facingDirection)
-        {
-            case "north":
-                theLink.setRotation(0);
-                break;
-            case "east":
-                theLink.setRotation(90);
-                break;
-            case "west":
-                theLink.setRotation(270);
-                break;
-            case "south":
-                theLink.setRotation(180);
-                break;
-            default:
-                theLink.setRotation(180);
-                break;
-        }
-    }*/ //The fact that I'm using different images for each facing direction means I don't need to turn Link.
+       heart = new object("heartfull");
+       Start.theStart.addObject(heart, 575, 20);
+       for(int i=555;i>475;i -= 20)
+       {
+           object heartFull = new object("heartfull");
+           Start.theStart.addObject(heartFull, i, 20);
+       }
+    }
+    public void decHealth()
+    {
+        --health;
+        heart.shuffle();
+    }
     public void movementCheck()
     {
         theLink.checking = false;
@@ -107,24 +115,6 @@ public class link extends Actor
     }
     public void stateCheck()
     {
-        /*if(theLink.movementState == "walking" && !checking)
-        {
-            theLink.checking = true;
-            startTime = System.currentTimeMillis();
-            while(checkingTime < startTime + 1000)
-            {
-                checkingTime = System.currentTimeMillis();
-            }
-            theLink.movementState = "notwalking";
-            startTime = System.currentTimeMillis();
-            checkingTime = startTime;
-            while(checkingTime < startTime + 1000)
-            {
-                checkingTime = System.currentTimeMillis();
-            }
-            theLink.checking = false;
-            System.out.println("Debug: stateCheck loop complete.");
-        }*/
         if(theLink.checking)
         {
             atime = atime + 1;
@@ -165,11 +155,21 @@ public class link extends Actor
                 currentLevel = 2;
                 nextLevel = new Area2();
                 break;
+            case 3:
+                currentLevel = 3;
+                nextLevel = new Area3();
+                break;
+            case 4:
+                currentLevel = 4;
+                nextLevel = new Win();
+                break;
             default:
                 System.out.println("Something went wrong. Attempted to move to next level of value \""+a+"\".");
                 break;
         }
+        
         Greenfoot.setWorld(nextLevel);
+        object.buildHearts(theLink.health);
     }
     public static void toYouLose()
     {
@@ -201,7 +201,7 @@ public class link extends Actor
         {
             ctime = ctime + 1;
         }
-        if(theLink.ctime >= 3)
+        if(theLink.ctime >= 30)
         {
             theLink.invincible = false;
             ctime = 0;
@@ -229,6 +229,14 @@ public class link extends Actor
      */
     public void act() 
     {
+        /*if(Greenfoot.isKeyDown("f"))
+        {
+            invincible = true;
+        }
+        else
+        {
+            invincible = false;
+        }*/
         movementCheck();
         stateCheck();
         attack();

@@ -13,10 +13,13 @@ public class enemy extends Actor
     private boolean attacked;
     private int atime = 0;
     private int btime = 0;
+    private boolean moveState = true;
+    private boolean boss = false;
     public enemy(int startingHealth, String startingIcon)
     {
         this.health = startingHealth;
         this.icon = startingIcon;
+        if(startingIcon == "boss"){boss = true;}
         setImage("images/" + icon + ".png");
     }
     public void healthCheck()
@@ -36,7 +39,7 @@ public class enemy extends Actor
         link target = getOneIntersectingObject(link.class);
         if(target != null && !attacked && !link.theLink.invincible)
         {
-            target.health -= 1;
+            target.decHealth();
             attacked = true;
         }
     }
@@ -46,7 +49,7 @@ public class enemy extends Actor
         {
             atime = atime + 1;
         }
-        if(atime >= 25)
+        if(atime >= 45)
         {
             attacked = false;
             atime = 0;
@@ -61,6 +64,7 @@ public class enemy extends Actor
             {
                 case 0:
                     setLocation(getX()+30,getY());
+                    
                     break;
                 case 1:
                     setLocation(getX()-30,getY());
@@ -73,6 +77,16 @@ public class enemy extends Actor
                     break;
                 default:
                     System.out.println("Enemy attempted to move in a wrong direction. Attempted direction was: "+a);
+            }
+            if(moveState == false && !boss)
+            {
+                setImage("enemywalking.png");
+                moveState = true;
+            }
+            else if(moveState == true && !boss)
+            {
+                setImage("enemy.png");
+                moveState = false;
             }
             btime = 0;
         }

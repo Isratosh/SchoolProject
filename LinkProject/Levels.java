@@ -11,6 +11,7 @@ public class Levels extends World
     public static link theLink;
     public static int enemies;
     public static int currentLevel;
+
     /**
      * Constructor for objects of class Levels.
      * 
@@ -26,6 +27,11 @@ public class Levels extends World
     {
         return theLink;
     }
+    public void addMiscObject(String icon, int x, int y)
+    {
+        object miscObject = new object(icon);
+        addObject(miscObject, x, y);
+    }
     public static void decEnemies()
     {
         --enemies;
@@ -34,5 +40,13 @@ public class Levels extends World
             Greenfoot.delay(20);
             link.toNextLevel(theLink.currentLevel + 1);
         }
+    }
+    public void stopped()
+    {
+
+    }
+    public void started()
+    {
+
     }
 }

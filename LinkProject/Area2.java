@@ -26,11 +26,11 @@ public class Area2 extends Levels
     private void prepare()
     {
         addObject(theLink,66,228);
-        enemy enemy = new enemy(2, "hamburger");
+        enemy enemy = new enemy(2, "enemy");
         addObject(enemy,265,86);
-        enemy enemy2 = new enemy(2, "hamburger");
+        enemy enemy2 = new enemy(2, "enemy");
         addObject(enemy2,422,219);
-        enemy enemy3 = new enemy(2, "hamburger");
+        enemy enemy3 = new enemy(2, "enemy");
         addObject(enemy3,295,344);
     }
 }

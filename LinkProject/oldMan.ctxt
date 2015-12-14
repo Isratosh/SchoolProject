@@ -2,10 +2,12 @@
 comment0.target=oldMan
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ oldMan\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
-comment1.target=void\ act()
+comment1.target=oldMan()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ oldMan\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
-comment2.target=void\ interact()
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ giveSword()
-numComments=4
+comment3.target=void\ interact()
+comment4.params=
+comment4.target=void\ giveSword()
+numComments=5

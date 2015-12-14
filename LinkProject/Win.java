@@ -1,22 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Area1 here.
+ * Write a description of class Win here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Area1 extends Levels
+public class Win extends Levels
 {
-    
+
     /**
-     * Constructor for objects of class Area1.
+     * Constructor for objects of class Win.
      * 
      */
-    public Area1()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1, 1); 
+    public Win()
+    {
+        super(1, 4);
         prepare();
     }
 
@@ -26,10 +25,8 @@ public class Area1 extends Levels
      */
     private void prepare()
     {
-        addObject(theLink,52,228);
-        
-        enemy enemy = new enemy(2, "enemy");
-        addObject(enemy,445,232);
+        object object = new object("zelda");
+        addObject(object,292,98);
+        addObject(theLink,298,332);
     }
-    
 }
